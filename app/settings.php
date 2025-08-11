@@ -8,7 +8,7 @@ use DI\ContainerBuilder;
 use Monolog\Logger;
 
 return function (ContainerBuilder $containerBuilder) {
-
+    //configuraicon de los errores 
     $containerBuilder->addDefinitions([
         SettingsInterface::class => function () {
             return new Settings([

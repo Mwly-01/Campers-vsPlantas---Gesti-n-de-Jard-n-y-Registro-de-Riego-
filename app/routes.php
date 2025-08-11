@@ -19,6 +19,14 @@ return function (App $app) {
         $response->getBody()->write('Holiwis camperinis😩😩!');
         return $response;
     });
+    //se agrega una de las rutas necesarias 
+    $app->group('/plantas', function (Group $group) {
+        $group->get('', [PlantaController::class, 'index']);
+        $group->get('/{id}', [PlantaController::class, 'findById']);
+        $group->post('', [PlantaController::class, 'create']);
+        $group->put('/{id}', [PlantaController::class, 'update']);
+        $group->delete('/{id}', [PlantaController::class, 'delete']);
+    });
 
     $app->group('/users', function (Group $group) {
         $group->get('', [UserController::class, 'index']);
@@ -26,14 +34,5 @@ return function (App $app) {
         $group->post('', [UserController::class, 'create']);
         $group->put('/{id}', [UserController::class, 'update']);
         $group->delete('/{id}', [UserController::class, 'delete']);
-    });
-
-    //SE GREGAN LAS RUTAS NECESARIAS COMO PLANTAS 
-    $app->group('/plantas', function (Group $group) {
-        $group->get('', [PlantaController::class, 'index']);
-        $group->get('/{id}', [PlantaController::class, 'findById']);
-        $group->post('', [PlantaController::class, 'create']);
-        $group->put('/{id}', [PlantaController::class, 'update']);
-        $group->delete('/{id}', [PlantaController::class, 'delete']);
     });
 };

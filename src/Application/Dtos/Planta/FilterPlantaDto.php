@@ -8,12 +8,6 @@ use App\Application\Dtos\Contracts\ArraySerializableDto;
 
 class FilterPlantaDto implements ArraySerializableDto
 {
-    //system.out.println(" Aqui tiene su cafe, que ultimamente ud  ha. estado como mal");
-    private const ALLOWED_KEYS = [
-        'nombre',
-        'familia',
-        'categoria'
-    ];
 
     /**
      * @param array $args
@@ -30,4 +24,12 @@ class FilterPlantaDto implements ArraySerializableDto
             return htmlspecialchars($item);
         }, array_intersect_key($this->args, $allowedKeys));
     }
+
+
+    private const ALLOWED_KEYS = [
+        'nombre',
+        'familia',
+        'categoria'
+    ];
+
 }

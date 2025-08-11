@@ -21,6 +21,7 @@ CREATE TABLE `plantas` (
     `nombre` varchar(100) NOT NULL,
     `familia` varchar(100) NOT NULL,
     `categoria` varchar(100) NOT NULL,
+    `proximo_riego` varchar(100) NOT NULL,
     PRIMARY KEY (`id`),
     UNIQUE KEY `nombre` (`nombre`)
 );
@@ -38,9 +39,9 @@ VALUES ('adrian','adrian@gmail.com',SHA2('h3ll0.', 512)),
        ('ana','ana@gmail.com', SHA2('h3llo.',512));
 
 INSERT INTO
-    `plantas` (`nombre`, `familia`, `categoria`)
-VALUES ('Aloe Vera','Asphodelaceae','cactus'),
-        ('Lavanda','Lamiaceae','ornamental');
+    `plantas` (`nombre`, `familia`, `categoria`,`proximo_riego`)
+VALUES ('Aloe Vera','Asphodelaceae','cactus','2025-08-14'),
+        ('Lavanda','Lamiaceae','ornamental','2025-08-07');
 
 
 

@@ -6,7 +6,7 @@ namespace App\Application\Dtos\User;
 
 use App\Application\Dtos\Contracts\ArraySerializableDto;
 use Respect\Validation\Exceptions\NestedValidationException;
-use Respect\Validation\Validator as v;
+use Respect\Validation\Validator as validation;
 
 class FindUserDto implements ArraySerializableDto
 {
@@ -25,7 +25,7 @@ class FindUserDto implements ArraySerializableDto
     private function validate()
     {
         try {
-            v::intType()->setName('userId')->assert((int)$this->args['id']);
+            validation::intType()->setName('userId')->assert((int)$this->args['id']);
         } catch (NestedValidationException $e) {
             throw new \InvalidArgumentException($e->getFullMessage());
         }

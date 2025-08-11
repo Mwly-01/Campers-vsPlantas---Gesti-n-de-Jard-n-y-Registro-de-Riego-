@@ -26,8 +26,7 @@ class PlantaController
      */
     public function index(Request $request, Response $response)
     {
-        // $dto = new FilterPlantaDto($request->getQueryParams());
-        // $data = $request->getParsedBody();
+
         $useCase = new GetAllPlantaUseCase($this->plantaRepository);
         return $this->successResponse($response, $useCase->execute());
     }

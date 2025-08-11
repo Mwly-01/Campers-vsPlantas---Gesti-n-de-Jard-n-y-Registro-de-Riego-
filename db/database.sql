@@ -21,7 +21,7 @@ CREATE TABLE `plantas` (
     `nombre` varchar(100) NOT NULL,
     `familia` varchar(100) NOT NULL,
     `categoria` varchar(100) NOT NULL,
-    `proximo_riego` varchar(100) NOT NULL,
+    `proximo_riego` varchar(100) NOT NULL DEFAULT '',
     PRIMARY KEY (`id`),
     UNIQUE KEY `nombre` (`nombre`)
 );

@@ -25,9 +25,9 @@ class UserDto implements ArraySerializableDto
     private function validate()
     {
         try {
-            validation::stringType()->length(min: 3, max: 50)->setName('name')->assert($this->args['name']);
+            validation::stringType()->length(min: 2, max: 50)->setName('name')->assert($this->args['name']);
             validation::email()->setName('email')->assert($this->args['email']);
-            validation::stringType()->length(min: 7, max: 110)
+            validation::stringType()->length(min: 8, max: 100)
                 ->regex('/[!@#$%^&*()\-_=+{};:,<.>]/')->regex('/[0-9]/')
                 ->setName('password')->assert($this->args['password']);
         } catch (NestedValidationException $e) {

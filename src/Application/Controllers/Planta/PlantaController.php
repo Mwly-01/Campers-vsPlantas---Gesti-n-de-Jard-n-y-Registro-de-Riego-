@@ -4,14 +4,15 @@ declare(strict_types=1);
 
 namespace App\Application\Controllers\Planta;
 
+use App\Application\Dtos\Planta\PlantaDto;
+use App\Application\Dtos\Planta\FilterPlantaDto;
 use App\Domain\Repository\PlantaRepository;
 use App\Application\UseCase\Planta\GetAllPlantaUseCase;
 
 use App\Application\Dtos\User\FindUserDto;
 use App\Application\Dtos\User\PatchUserDto;
-use App\Application\Dtos\User\UserDto;
 use App\Application\Http\Traits\ApiResponseTrait;
-
+use App\Application\UseCase\Planta\CreatePlantaUseCase;
 use Psr\Http\Message\ResponseInterface as Response;
 use Psr\Http\Message\ServerRequestInterface as Request;
 
@@ -50,9 +51,9 @@ class PlantaController
      */
     public function create(Request $request, Response $response)
     {
-        $dto = new UserDto($request->getParsedBody());
-        $useCase = new GetAllPlantaUseCase($this->plantaRepository);
-        return $this->successResponse($response, $useCase->execute());
+        $dto = new PlantaDto($request->getParsedBody());
+        $useCase = new CreatePlantaUseCase($this->plantaRepository);
+        return $this->successResponse($response, $useCase($dto));
     }
 
     /**

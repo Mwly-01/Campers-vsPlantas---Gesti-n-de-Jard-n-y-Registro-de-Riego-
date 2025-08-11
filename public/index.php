@@ -14,38 +14,38 @@ use Slim\Factory\ServerRequestCreatorFactory;
 
 require __DIR__ . '/../vendor/autoload.php';
 
-// Instantiate PHP-DI ContainerBuilder
+//containerBUilder
 $containerBuilder = new ContainerBuilder();
 
-// Set up settings
+//set up settings 
 $settings = require __DIR__ . '/../app/settings.php';
 $settings($containerBuilder);
 
-// Set up dependencies
+//set up dependencies
 $dependencies = require __DIR__ . '/../app/dependencies.php';
 $dependencies($containerBuilder);
 
-// Set up repositories
+//set up repositories
 $repositories = require __DIR__ . '/../app/repositories.php';
 $repositories($containerBuilder);
 
-// Build PHP-DI Container instance
+
 $container = $containerBuilder->build();
 
-// Set up .env
+
 $dotenv = Dotenv::createImmutable(__DIR__ . '/../');
 $dotenv->load();
 
-// Instantiate the app
+
 AppFactory::setContainer($container);
 $app = AppFactory::create();
 $callableResolver = $app->getCallableResolver();
 
-// Register middleware
+
 $middleware = require __DIR__ . '/../app/middleware.php';
 $middleware($app);
 
-// Register routes
+
 $routes = require __DIR__ . '/../app/routes.php';
 $routes($app);
 

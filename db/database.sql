@@ -34,20 +34,13 @@ CREATE TABLE `riego` (
 
 INSERT INTO
     `users` (`name`, `email`, `password`)
-VALUES (
-        'adrian','adrian@gmail.com',SHA2('h3ll0.', 512)
-    );
-
-INSERT INTO
-    `users` (`name`, `email`, `password`)
-VALUES ('ana','ana@gmail.com', SHA2('h3ll0.', 512)
-    );
+VALUES ('adrian','adrian@gmail.com',SHA2('h3ll0.', 512)),
+       ('ana','ana@gmail.com', SHA2('h3llo.',512));
 
 INSERT INTO
     `plantas` (`nombre`, `familia`, `categoria`)
-VALUES (
-        'Aloe Vera','Asphodelaceae','cactus'
-    );
+VALUES ('Aloe Vera','Asphodelaceae','cactus'),
+        ('Lavanda','Lamiaceae','ornamental');
 
 SELECT * FROM plantas;
 

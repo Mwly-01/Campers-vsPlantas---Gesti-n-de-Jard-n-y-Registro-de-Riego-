@@ -42,6 +42,8 @@ INSERT INTO
 VALUES ('Aloe Vera','Asphodelaceae','cactus'),
         ('Lavanda','Lamiaceae','ornamental');
 
+
+
 SELECT * FROM plantas;
 
 SELECT * FROM users;

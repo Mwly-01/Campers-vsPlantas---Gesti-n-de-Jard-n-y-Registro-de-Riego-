@@ -11,12 +11,12 @@ use Slim\Interfaces\RouteCollectorProxyInterface as Group;
 
 return function (App $app) {
     $app->options('/{routes:.*}', function (Request $request, Response $response) {
-        // CORS Pre-Flight OPTIONS Request Handler
+        // opcion para empezar con los handlers 
         return $response;
     });
 
     $app->get('/', function (Request $request, Response $response) {
-        $response->getBody()->write('Hola Campers!');
+        $response->getBody()->write('Holiwis camperinis😩😩!');
         return $response;
     });
 
@@ -28,7 +28,7 @@ return function (App $app) {
         $group->delete('/{id}', [UserController::class, 'delete']);
     });
 
-    //Agregar las rutas aquí abajo.
+    //SE GREGAN LAS RUTAS NECESARIAS COMO PLANTAS 
     $app->group('/plantas', function (Group $group) {
         $group->get('', [PlantaController::class, 'index']);
         $group->get('/{id}', [PlantaController::class, 'findById']);
